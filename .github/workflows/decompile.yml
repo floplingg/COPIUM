@@ -1,0 +1,60 @@
+name: Decompile upstream SoberClient
+
+# Decompiles upstream/SoberClient-*.jar with Vineflower and pushes the
+# result to the `decompiled` branch. The Copium source on `main` is built
+# from that output with the cheat features removed.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "upstream/*.jar"
+      - ".github/workflows/decompile.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  decompile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Download Vineflower
+        run: |
+          curl -fsSL -o vineflower.jar \
+            https://repo1.maven.org/maven2/org/vineflower/vineflower/1.10.1/vineflower-1.10.1.jar
+
+      - name: Decompile
+        run: |
+          set -e
+          JAR=$(ls upstream/*.jar | head -1)
+          mkdir -p work/classes work/java out/src/main/java out/src/main/resources
+          unzip -q "$JAR" -d work/classes
+          # Resources: everything that is not a .class file
+          (cd work/classes && find . -type f ! -name '*.class' -exec cp --parents {} ../../out/src/main/resources/ \;)
+          # Code: decompile only the class files
+          mkdir -p work/onlyclasses
+          (cd work/classes && find . -name '*.class' -exec cp --parents {} ../onlyclasses/ \;)
+          java -jar vineflower.jar -dgs=1 -rsy=1 -rbr=1 -lit=1 -mpm=60 work/onlyclasses work/java
+          cp -r work/java/. out/src/main/java/
+          echo "Java files: $(find out/src/main/java -name '*.java' | wc -l)"
+
+      - name: Push to decompiled branch
+        run: |
+          set -e
+          cd out
+          git init -q -b decompiled
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          cp ../LICENSE .
+          cp ../upstream/SoberClient-NOTICE.md NOTICE-SoberClient.md
+          git add -A
+          git commit -qm "Decompiled $(ls ../upstream/*.jar | xargs -n1 basename) with Vineflower 1.10.1"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" decompiled

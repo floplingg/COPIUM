@@ -19,7 +19,7 @@ public abstract class PlayerAttackMixin {
       at = {@At("HEAD")}
    )
    private void violet$onAttack(class_1297 target, CallbackInfo ci) {
-      if (this == class_310.method_1551().field_1724) {
+      if ((Object)this == class_310.method_1551().field_1724) {
          PlayerAttackEntityEvent.dispatch(target);
       }
    }

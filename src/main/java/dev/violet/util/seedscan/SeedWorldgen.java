@@ -264,7 +264,7 @@ public final class SeedWorldgen {
             for (class_6880<class_2922<?>> holder : biome.method_30976()) {
                random.method_12663(this.seed + (long)index, from.field_9181, from.field_9180);
                if (((class_2922)holder.comp_349()).method_12669(random)) {
-                  ((class_2922)holder.comp_349()).method_12668(context, chunk, pos -> carverBiomeManager.method_22393((class_2338)pos), random, aquifer, from, mask);
+                  ((class_2922)holder.comp_349()).method_12668(context, chunk, carverPos -> carverBiomeManager.method_22393((class_2338)carverPos), random, aquifer, from, mask);
                }
 
                index++;

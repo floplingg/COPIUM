@@ -19,7 +19,7 @@ public abstract class EntityLookMixin {
       require = 0
    )
    private void violet$cameraLook(double dx, double dy, CallbackInfo ci) {
-      if (this == class_310.method_1551().field_1724) {
+      if ((Object)this == class_310.method_1551().field_1724) {
          Freecam freecam = SoberClient.MODULES.get(Freecam.class);
          if (freecam != null && freecam.isActive()) {
             freecam.turn(dx, dy);

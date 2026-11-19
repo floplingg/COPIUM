@@ -20,6 +20,7 @@ import net.minecraft.class_1972;
 import net.minecraft.class_2246;
 import net.minecraft.class_2248;
 import net.minecraft.class_2338;
+import net.minecraft.class_2791;
 import net.minecraft.class_2359;
 import net.minecraft.class_2370;
 import net.minecraft.class_2806;
@@ -91,7 +92,7 @@ public final class SeedWorldgen {
    private static final int MAX_STORED_BIOMES = 4096;
    private static final int MAX_CARVER_BIOMES = 65536;
    private final class_4543 biomeManager;
-   private static final class_5455 CARVER_REGISTRIES = new class_6891(List.of(new class_2370(class_7924.field_41236, Lifecycle.stable()).method_40276()));
+   private static final class_5455 CARVER_REGISTRIES = new class_6891((List)List.of(new class_2370(class_7924.field_41236, Lifecycle.stable()).method_40276()));
    private static final Set<class_5321<class_1959>> TALL_TREES = Set.of(
       class_1972.field_9417, class_1972.field_9440, class_1972.field_35118, class_1972.field_35119, class_1972.field_35113, class_1972.field_38748
    );
@@ -263,7 +264,7 @@ public final class SeedWorldgen {
             for (class_6880<class_2922<?>> holder : biome.method_30976()) {
                random.method_12663(this.seed + (long)index, from.field_9181, from.field_9180);
                if (((class_2922)holder.comp_349()).method_12669(random)) {
-                  ((class_2922)holder.comp_349()).method_12668(context, chunk, carverBiomeManager::method_22393, random, aquifer, from, mask);
+                  ((class_2922)holder.comp_349()).method_12668(context, chunk, pos -> carverBiomeManager.method_22393((class_2338)pos), random, aquifer, from, mask);
                }
 
                index++;
@@ -280,12 +281,12 @@ public final class SeedWorldgen {
       }
 
       return new class_2359<class_6880<class_1959>>() {
-         public int getRawId(class_6880<class_1959> biome) {
+         public int method_10206(class_6880<class_1959> biome) {
             Integer id = ids.get(biome);
             return id == null ? -1 : id;
          }
 
-         public class_6880<class_1959> get(int id) {
+         public class_6880<class_1959> method_10200(int id) {
             return id >= 0 && id < list.size() ? list.get(id) : null;
          }
 
@@ -302,92 +303,22 @@ public final class SeedWorldgen {
    private static class_1936 emptyLevel(class_11897 containers, class_5539 height) {
       class_2839 empty = new class_2839(new class_1923(0, 0), class_2843.field_12950, height, containers, null);
       InvocationHandler handler = (proxy, method, args) -> {
-         // $VF: Couldn't be decompiled
-         // Please report this to the Vineflower issue tracker, at https://github.com/Vineflower/vineflower/issues with a copy of the class file (if you have the rights to distribute it!)
-         // java.lang.RuntimeException: invalid constant type: Ljava/lang/Object; with value SeedWorldgen.emptyLevel
-         //   at org.jetbrains.java.decompiler.modules.decompiler.exps.ConstExprent.toJava(ConstExprent.java:356)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.exps.SwitchExprent.toJava(SwitchExprent.java:151)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.ExprProcessor.getCastedExprent(ExprProcessor.java:1018)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.exps.ExitExprent.toJava(ExitExprent.java:86)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.ExprProcessor.listToJava(ExprProcessor.java:895)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.stats.BasicBlockStatement.toJava(BasicBlockStatement.java:90)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.ExprProcessor.jmpWrapper(ExprProcessor.java:833)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.stats.SequenceStatement.toJava(SequenceStatement.java:107)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.ExprProcessor.jmpWrapper(ExprProcessor.java:833)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.stats.IfStatement.toJava(IfStatement.java:241)
-         //   at org.jetbrains.java.decompiler.modules.decompiler.stats.RootStatement.toJava(RootStatement.java:36)
-         //   at org.jetbrains.java.decompiler.main.ClassWriter.methodLambdaToJava(ClassWriter.java:949)
-         //
-         // Bytecode:
-         // 00: aload 2
-         // 01: invokevirtual java/lang/reflect/Method.getDeclaringClass ()Ljava/lang/Class;
-         // 04: ldc java/lang/Object
-         // 06: if_acmpne 8c
-         // 09: aload 2
-         // 0a: invokevirtual java/lang/reflect/Method.getName ()Ljava/lang/String;
-         // 0d: astore 4
-         // 0f: bipush -1
-         // 10: istore 5
-         // 12: aload 4
-         // 14: invokevirtual java/lang/String.hashCode ()I
-         // 17: lookupswitch 56 2 -1295482945 25 147696667 42
-         // 30: aload 4
-         // 32: ldc_w "equals"
-         // 35: invokevirtual java/lang/String.equals (Ljava/lang/Object;)Z
-         // 38: ifeq 4f
-         // 3b: bipush 0
-         // 3c: istore 5
-         // 3e: goto 4f
-         // 41: aload 4
-         // 43: ldc_w "hashCode"
-         // 46: invokevirtual java/lang/String.equals (Ljava/lang/Object;)Z
-         // 49: ifeq 4f
-         // 4c: bipush 1
-         // 4d: istore 5
-         // 4f: iload 5
-         // 51: lookupswitch 55 2 0 27 1 45
-         // 6c: aload 1
-         // 6d: aload 3
-         // 6e: bipush 0
-         // 6f: aaload
-         // 70: if_acmpne 77
-         // 73: bipush 1
-         // 74: goto 78
-         // 77: bipush 0
-         // 78: invokestatic java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
-         // 7b: goto 8b
-         // 7e: aload 1
-         // 7f: invokestatic java/lang/System.identityHashCode (Ljava/lang/Object;)I
-         // 82: invokestatic java/lang/Integer.valueOf (I)Ljava/lang/Integer;
-         // 85: goto 8b
-         // 88: ldc_w "SeedWorldgen.emptyLevel"
-         // 8b: areturn
-         // 8c: ldc_w net/minecraft/class_2791
-         // 8f: aload 2
-         // 90: invokevirtual java/lang/reflect/Method.getReturnType ()Ljava/lang/Class;
-         // 93: invokevirtual java/lang/Class.isAssignableFrom (Ljava/lang/Class;)Z
-         // 96: ifeq a3
-         // 99: aload 2
-         // 9a: invokevirtual java/lang/reflect/Method.getParameterCount ()I
-         // 9d: bipush 4
-         // 9e: if_icmpne a3
-         // a1: aload 0
-         // a2: areturn
-         // a3: aload 2
-         // a4: invokevirtual java/lang/reflect/Method.isDefault ()Z
-         // a7: ifeq b1
-         // aa: aload 1
-         // ab: aload 2
-         // ac: aload 3
-         // ad: invokestatic java/lang/reflect/InvocationHandler.invokeDefault (Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-         // b0: areturn
-         // b1: new java/lang/UnsupportedOperationException
-         // b4: dup
-         // b5: aload 2
-         // b6: invokestatic java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;
-         // b9: invokedynamic makeConcatWithConstants (Ljava/lang/String;)Ljava/lang/String; bsm=java/lang/invoke/StringConcatFactory.makeConcatWithConstants (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite; args=[ "structure-free level: \u0001" ]
-         // be: invokespecial java/lang/UnsupportedOperationException.<init> (Ljava/lang/String;)V
-         // c1: athrow
+         if (method.getDeclaringClass() == Object.class) {
+            switch (method.getName()) {
+               case "equals":
+                  return proxy == args[0];
+               case "hashCode":
+                  return System.identityHashCode(proxy);
+               default:
+                  return "SeedWorldgen.emptyLevel";
+            }
+         } else if (class_2791.class.isAssignableFrom(method.getReturnType()) && method.getParameterCount() == 4) {
+            return empty;
+         } else if (method.isDefault()) {
+            return InvocationHandler.invokeDefault(proxy, method, args);
+         } else {
+            throw new UnsupportedOperationException("structure-free level: " + method);
+         }
       };
       return (class_1936)Proxy.newProxyInstance(class_1936.class.getClassLoader(), new Class[]{class_1936.class}, handler);
    }

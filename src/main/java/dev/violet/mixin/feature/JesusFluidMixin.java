@@ -19,7 +19,7 @@ public abstract class JesusFluidMixin {
          return true;
       } else {
          Jesus jesus = Jesus.active;
-         return jesus != null && this == class_310.method_1551().field_1724 ? jesus.canWalkOnFluid(fluidState) : false;
+         return jesus != null && (Object)this == class_310.method_1551().field_1724 ? jesus.canWalkOnFluid(fluidState) : false;
       }
    }
 }

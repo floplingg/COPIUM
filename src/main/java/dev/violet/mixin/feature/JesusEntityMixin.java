@@ -30,7 +30,7 @@ public abstract class JesusEntityMixin {
    @Unique
    private void violet$jesusMarkBubbleColumn() {
       Jesus jesus = Jesus.active;
-      if (jesus != null && this == class_310.method_1551().field_1724) {
+      if (jesus != null && (Object)this == class_310.method_1551().field_1724) {
          jesus.markInBubbleColumn();
       }
    }

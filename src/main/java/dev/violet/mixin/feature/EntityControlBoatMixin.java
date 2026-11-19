@@ -17,7 +17,7 @@ public abstract class EntityControlBoatMixin {
       )}
    )
    private boolean violet$entityControlInputLeft(boolean original) {
-      return original && !EntityControlVehicleHook.locksBoatTurning((class_10255)this);
+      return original && !EntityControlVehicleHook.locksBoatTurning((class_10255)(Object)this);
    }
 
    @ModifyExpressionValue(
@@ -29,6 +29,6 @@ public abstract class EntityControlBoatMixin {
       )}
    )
    private boolean violet$entityControlInputRight(boolean original) {
-      return original && !EntityControlVehicleHook.locksBoatTurning((class_10255)this);
+      return original && !EntityControlVehicleHook.locksBoatTurning((class_10255)(Object)this);
    }
 }

@@ -17,7 +17,7 @@ public class EntityMixin {
       cancellable = true
    )
    private void violet$move(class_1313 type, class_243 movement, CallbackInfo ci) {
-      if (Boatfly.move((class_1297)this, type)) {
+      if (Boatfly.move((class_1297)(Object)this, type)) {
          ci.cancel();
       }
    }

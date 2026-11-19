@@ -21,7 +21,7 @@ public abstract class ElytraFlyMixin {
       } else {
          class_310 mc = class_310.method_1551();
          class_746 player = mc.field_1724;
-         return this == player && mc.method_18854() ? module.modifyFallFlying(player, original) : original;
+         return (Object)this == player && mc.method_18854() ? module.modifyFallFlying(player, original) : original;
       }
    }
 }

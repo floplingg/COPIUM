@@ -23,7 +23,7 @@ import net.minecraft.class_310;
 import net.minecraft.class_3708;
 
 public final class StorageESP extends BusModule implements ChunkScanner.Consumer {
-   private final EspStyle style = new EspStyle((x$0, x$1) -> (S)this.addSetting(x$0, x$1), "Outline", 0.25F, 256.0F);
+   private final EspStyle style = new EspStyle(this::addSetting, "Outline", 0.25F, 256.0F);
    private final BooleanSetting sTracers = this.addSetting("tracers", new BooleanSetting("Tracers", false));
    private final StorageESP.Type chest = new StorageESP.Type("Chest", true, -6530304, "chests", "chest-color", "chest-tracers", "chest-tracer-color");
    private final StorageESP.Type enderChest = new StorageESP.Type(

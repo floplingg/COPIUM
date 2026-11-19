@@ -40,6 +40,6 @@ public abstract class FlyEntityMixin {
 
    @Unique
    private boolean violet$flyAffects() {
-      return Fly.active != null && this == class_310.method_1551().field_1724;
+      return Fly.active != null && (Object)this == class_310.method_1551().field_1724;
    }
 }

@@ -18,7 +18,7 @@ public abstract class SneakInputMixin {
    private void violet$forceSneak(CallbackInfo ci) {
       Sneak sneak = Sneak.active;
       if (sneak != null && sneak.doVanilla()) {
-         class_744 input = (class_744)this;
+         class_744 input = (class_744)(Object)this;
          class_10185 keys = input.field_54155;
          if (!keys.comp_3164()) {
             input.field_54155 = new class_10185(

@@ -16,7 +16,7 @@ import net.minecraft.class_2680;
 import net.minecraft.class_310;
 
 public final class BlockESP extends BusModule implements ChunkScanner.Consumer {
-   private final EspStyle style = new EspStyle((x$0, x$1) -> (S)this.addSetting(x$0, x$1), "Outline", 0.2F, 2048.0F);
+   private final EspStyle style = new EspStyle(this::addSetting, "Outline", 0.2F, 2048.0F);
    private final BooleanSetting sTracers = this.addSetting("tracers", new BooleanSetting("Tracers", false));
    private final BlockColorListSetting sBlockColors = this.addSetting(BlockColorListSetting.createDefault());
    private final BlockLayer layer = new BlockLayer(new BlockLayer.Palette() {

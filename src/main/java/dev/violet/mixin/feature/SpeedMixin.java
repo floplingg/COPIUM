@@ -18,6 +18,6 @@ public abstract class SpeedMixin {
    )
    private class_243 violet$speedMove(class_243 movement, @Local(argsOnly = true) class_1313 type) {
       Speed speed = Speed.active;
-      return speed != null && type == class_1313.field_6308 ? speed.onSelfMove((class_746)this, movement) : movement;
+      return speed != null && type == class_1313.field_6308 ? speed.onSelfMove((class_746)(Object)this, movement) : movement;
    }
 }

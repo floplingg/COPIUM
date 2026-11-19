@@ -15,7 +15,7 @@ public class ClientPlayerEntityMixin {
    )
    private void violet$phase(CallbackInfo ci) {
       if (Boatfly.phasing()) {
-         ((class_746)this).field_5960 = true;
+         ((class_746)(Object)this).field_5960 = true;
       }
    }
 }

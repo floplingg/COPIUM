@@ -34,7 +34,7 @@ public final class AcOffFeed {
 
          HttpRequest request;
          try {
-            request = HttpRequest.newBuilder(URI.create(url.trim())).timeout(Duration.ofSeconds(8L)).header("User-Agent", "SoberClient").GET().build();
+            request = HttpRequest.newBuilder(URI.create(url.trim())).timeout(Duration.ofSeconds(8L)).header("User-Agent", "Copium Client").GET().build();
          } catch (IllegalArgumentException var8) {
             this.finish(this.failed("Invalid feed URL", now), onResult);
             return;

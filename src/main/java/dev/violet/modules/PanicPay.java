@@ -106,7 +106,7 @@ public final class PanicPay extends BusModule {
                this.finish(mc);
             }
          }, failure -> {
-            LOGGER.error("[Sober] Panic Pay stopped", failure);
+            LOGGER.error("[Copium] Panic Pay stopped", failure);
             this.say(ModuleChat.body().danger("Stopped").text(": " + failure));
             this.finish(mc);
          });

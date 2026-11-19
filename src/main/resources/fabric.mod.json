@@ -3,7 +3,7 @@
   "id": "copium",
   "version": "${version}",
   "name": "Copium Client",
-  "description": "Visuals-only Fabric client: animated skies, HUD, Spotify player, custom crosshairs, glints and cosmetics. No cheats. Forked from SoberClient by Violet.",
+  "description": "Fabric client with skies, HUD, Spotify player, ESP, movement, combat and DonutSMP utilities. Forked from SoberClient by Violet.",
   "authors": [
     "floplingg"
   ],
@@ -30,7 +30,7 @@
     "2660master (SkyFX)"
   ],
   "contact": {
-    "sources": "https://github.com/floplingg/CopiumNOCHEAT",
-    "homepage": "https://github.com/floplingg/CopiumNOCHEAT"
+    "sources": "https://github.com/floplingg/COPIUM",
+    "homepage": "https://github.com/floplingg/COPIUM"
   }
 }

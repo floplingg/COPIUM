@@ -19,7 +19,7 @@ import net.minecraft.class_1923;
 import net.minecraft.class_310;
 
 public final class OwnAreas {
-   private static final Path FILE = FabricLoader.getInstance().getConfigDir().resolve("soberclient-areas.json");
+   private static final Path FILE = FabricLoader.getInstance().getConfigDir().resolve("copium-areas.json");
    private static final Gson GSON = new Gson();
    private static final Map<String, Set<Long>> AREAS = new HashMap<>();
    private static boolean loaded;

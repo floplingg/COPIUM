@@ -23,7 +23,7 @@ public class ChunkScanner {
    public void start() {
       this.stop();
       this.executor = Executors.newSingleThreadExecutor(r -> {
-         Thread thread = new Thread(r, "SoberClient-" + this.name);
+         Thread thread = new Thread(r, "Copium Client-" + this.name);
          thread.setDaemon(true);
          return thread;
       });

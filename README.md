@@ -1,55 +1,42 @@
 # Copium Client
 
-A **visuals-only** Fabric client for Minecraft **1.21.11**, forked from
-[SoberClient](upstream/SoberClient-NOTICE.md) by Violet with every cheat removed.
+A Fabric client for Minecraft **1.21.11**, forked from
+[SoberClient](upstream/SoberClient-NOTICE.md) by Violet, with every SoberClient
+module kept: visuals, HUD, ESP, movement, combat and DonutSMP utilities.
 
-No ESP, no movement or combat hacks, no macros, no auto-updater, no telemetry,
-and **no internet connections at all**: Copium's code never goes online.
+> Cheat modules break most servers' rules. Test them on your own or a test
+> server, on an alt account.
 
 ## Download
 
 Grab `copium-client-1.21.11.jar` from the
-[latest release](https://github.com/floplingg/CopiumNOCHEAT/releases/tag/latest)
+[latest release](https://github.com/floplingg/COPIUM/releases/tag/latest)
 and put it in your `mods` folder together with
 [Fabric API](https://modrinth.com/mod/fabric-api). Needs Fabric Loader 0.18.2+ and Java 21.
 
 Open the menu with **Right Shift**.
 
-## What's in it
+## What's different from SoberClient
 
-| Area | Modules |
+- Rebranded to Copium Client (name, mod id `copium`, configs, logos, title screen)
+- **Removed:**
+  - Discord status (talked to Discord's API and the Discord app)
+  - Skin Changer (downloaded other players' skins from Mojang)
+  - Spotify lyrics (downloaded from lrclib.net); the Spotify player still shows the song
+  - Config share codes (uploaded to textdb.online); configs are shared as copy-paste text
+  - The bundled PowerShell media script
+- Decompiler errors fixed so it builds from source
+
+The build fails if Discord, Mojang, lrclib, textdb or PowerShell ever show up
+in Copium's code again.
+
+### Online features that are still in
+
+| Module | Connects to |
 |---|---|
-| World | Animated skies (aurora, galaxy, synthwave, black hole, sakura, …), motion blur, step tiles, jump circles, block outline |
-| Items | Custom enchant glints and item aura, custom 3D item models, CS-style knife pickaxe, swing animations |
-| Player | Capes, glass player effect, custom 3D skin model, accessories, your own name tag (only you see these) |
-| HUD | Watermark, FPS/BPS/TPS, coordinates, module list, keystrokes, inventory, hotkeys, notifications, region map |
-| Screens | Custom title screens (Copium, Island, Home, Vanilla+), themed inventories, animated chat typing, aspect ratio |
-| Other | Custom crosshairs, zoom (C), Spotify player (song, artist, album art, progress, media keys), creamy keyboard sounds, media hider, FPS booster, 5 config slots you can share as copy-paste text |
-
-## What was removed
-
-Everything that gives an advantage or automates gameplay:
-
-- **ESP and finders:** player/storage/block ESP, tracers, skeleton ESP, sus chunks, chunk/seed/light/netherite finders, spawner beams, tunnel/bedrock finders, activity inspector, the HUD player radar
-- **Movement:** fly, speed, sprint, jesus, spider, elytra fly, boat fly/noclip, entity control/speed, auto walk/jump, click TP, sneak, no jump delay, trident boost
-- **Combat:** aim assist, auto clicker, auto crystal/hit crystal, anchor macro, auto totem, double hand, shield breaker, jump reset, anti trap
-- **Automation:** auction sniper, auto sell/shop, auto eat/tool/firework/respawn/reconnect/log, fast use, speed mine, RTP/relog/home macros, key pearl, Panic Pay
-- **Server-evasion:** staff list, staff-live tracker, anti-vanish, anticheat status feed
-- **Hack overlays:** freecam, freelook through walls, fullbright, clear water/lava/rain, fake stats and fake pay
-
-The build checks every jar for these classes and fails if any come back.
-
-## Offline by design
-
-Copium has no network code. These SoberClient features were removed because they went online:
-
-- **Discord status** (talked to Discord's API and the Discord app)
-- **Skin Changer** (downloaded other players' skins from Mojang)
-- **Spotify lyrics** (downloaded lyrics from lrclib.net); the Spotify player still shows the song
-- **Config share codes** (uploaded configs to textdb.online); configs are now shared as copy-paste text
-
-The build fails if any network access or web address appears in Copium's code.
-Minecraft itself still connects to Mojang and to servers as normal.
+| Auction Sniper | `api.donutsmp.net` with your own DonutSMP API key |
+| Anti Cheat (status card) | `anticheat.imjules.be` |
+| Staff Live | YouTube and TikTok live pages of DonutSMP staff |
 
 ## Building
 
@@ -58,10 +45,9 @@ Minecraft itself still connects to Mojang and to servers as normal.
 ./gradlew runClient      # start Minecraft with Copium for testing
 ```
 
-The source was decompiled from SoberClient 1.0.0 (see `upstream/` and the
-`decompiled` branch), so it uses Fabric **intermediary** names
-(`class_310`, `method_1551`, …). The build uses intermediary as its mappings so
-it compiles as-is.
+The source was decompiled from SoberClient 1.0.0 (see `upstream/`), so it uses
+Fabric **intermediary** names (`class_310`, `method_1551`, …). The build uses
+intermediary as its mappings so it compiles as-is.
 
 The brand images are generated by `tools/make_brand_art.py`.
 
@@ -69,7 +55,7 @@ The brand images are generated by `tools/make_brand_art.py`.
 
 - **SoberClient** by **Violet** (GPL-3.0-or-later), which Copium is forked from
 - **SkyFX** by **2660master** (GPL-3.0-or-later): skies, auras, glints
-- **Anubis Staff List**: region map layout (see `LICENSE_anubis`)
+- **Anubis Staff List**: region map layout and staff list (see `LICENSE_anubis`)
 
 Copium Client is licensed **GPL-3.0-or-later**, the same as SoberClient.
 See [`LICENSE`](LICENSE) and [`upstream/SoberClient-NOTICE.md`](upstream/SoberClient-NOTICE.md).

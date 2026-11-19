@@ -455,7 +455,7 @@ final class GuiTest {
       }
 
       ac.setEnabled(true);
-      String skyMode = System.getProperty("violet.guitest.sky", "Sober");
+      String skyMode = System.getProperty("violet.guitest.sky", "Copium");
 
       try {
          Sky sky = SoberClient.MODULES.get(Sky.class);

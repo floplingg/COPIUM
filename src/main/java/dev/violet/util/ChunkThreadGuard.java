@@ -26,7 +26,7 @@ public final class ChunkThreadGuard {
       if (REPORTED.add(thread + "|" + what)) {
          SoberClient.LOG
             .warn(
-               "[SoberClient] Thread \"{}\" called {} off the main thread. It now runs on the main thread so the game does not crash.",
+               "[Copium] Thread \"{}\" called {} off the main thread. It now runs on the main thread so the game does not crash.",
                new Object[]{thread, what, new Throwable("caller")}
             );
       }

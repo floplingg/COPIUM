@@ -186,7 +186,7 @@ public final class SusChunk extends BusModule {
    public void onEnable() {
       this.resetState();
       this.executor = Executors.newSingleThreadExecutor(task -> {
-         Thread thread = new Thread(task, "SoberClient SusChunks");
+         Thread thread = new Thread(task, "Copium Client SusChunks");
          thread.setDaemon(true);
          return thread;
       });

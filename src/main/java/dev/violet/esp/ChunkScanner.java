@@ -318,7 +318,7 @@ public final class ChunkScanner {
    }
 
    private static void drop(ChunkScanner.Consumer consumer, RuntimeException e) {
-      LOGGER.error("[Sober] Chunk scan consumer {} failed; disabling it", consumer.getClass().getSimpleName(), e);
+      LOGGER.error("[Copium] Chunk scan consumer {} failed; disabling it", consumer.getClass().getSimpleName(), e);
       consumers.remove(consumer);
       snapshot = consumers.toArray(NONE);
       restartScan();

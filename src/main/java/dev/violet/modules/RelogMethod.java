@@ -114,7 +114,7 @@ public class RelogMethod extends Module {
             SoberClient.CONFIG.save();
          }
 
-         mc.execute(() -> mc.method_73360(class_2561.method_43470("SoberClient Relog Method")));
+         mc.execute(() -> mc.method_73360(class_2561.method_43470("Copium Client Relog Method")));
       }
    }
 

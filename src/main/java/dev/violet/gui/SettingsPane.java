@@ -789,8 +789,6 @@ final class SettingsPane {
       }
 
       float ty = by + 30.0F;
-      this.drawSetting(context, configs.shareName, x, ty, w, mx, my);
-      ty += 26.0F;
 
       for (String line : MenuKit.wrap(
          "Imported configs never change Auction Sniper, Auto Sell, Auto Shop, RTP Method or Panic Order, because they send commands.", (float)w, 0.62F, false

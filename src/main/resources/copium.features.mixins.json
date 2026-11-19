@@ -23,8 +23,6 @@
     "PacketEventsMixin",
     "PlayerAttackMixin",
     "PlayerMoveEventsMixin",
-    "SkinChangeHandMixin",
-    "SkinChangeRendererMixin",
     "SneakInputMixin",
     "SneakInteractMixin",
     "SneakPlayerMixin",
